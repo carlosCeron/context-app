@@ -1,15 +1,21 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, { useState } from 'react'
 import { AppRouter } from './AppRouter'
+import { UserContext } from './UserContext'
 
 const MainApp = props => {
+
+  const [user, setUser] = useState({});
+
   return (
-    <AppRouter />
+    <UserContext.Provider value={
+      {
+        user,
+        setUser
+      }
+    }>
+      <AppRouter />
+    </UserContext.Provider>
   )
-}
-
-MainApp.propTypes = {
-
 }
 
 export default MainApp

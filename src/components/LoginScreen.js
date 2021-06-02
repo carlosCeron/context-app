@@ -1,16 +1,21 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, { useContext } from 'react';
+import { UserContext } from './UserContext';
 
 const LoginScreen = props => {
+
+  const {setUser} = useContext(UserContext);
+
   return (
     <div>
       <h2>Login Screen</h2>
+      <hr />
+      <button onClick={() => setUser(
+        {id: 1234, name: 'Carlos'}
+      )}>
+        Ingresar
+      </button>
     </div>
   )
-}
-
-LoginScreen.propTypes = {
-
 }
 
 export default LoginScreen
